@@ -1,51 +1,64 @@
 version: 2
+
 models:
   - name: customer_orders
-    description: This table has the dates for the first and most recent orders. It
-      also has the number of orders for each customer
+    description: This table has the dates for the first and most recent orders. It also has the number of orders for each customer
+
     columns:
       - name: customer_id
         description: This is a unique identifier for a customer
         tests:
           - unique
           - not_null
+
       - name: first_order
         description: Date of the first order of the customer
+
       - name: most_recent_order
         description: Date of the most recent order of the customer
+
       - name: number_of_orders
         description: Number of orders for the customer
+
   - name: customer_payments
     description: This table has the total payments done by a customer
+
     columns:
       - name: customer_id
         description: This is a unique identifier for a customer
         tests:
           - unique
           - not_null
+          
       - name: total_amount
         description: Total amount paid by the customer
+
   - name: order_payments
-    description: "Provides individual amounts for each payment method and the total
-      amount for each order id "
+    description: "Provides individual amounts for each payment method and the total amount for each order id "
+
     columns:
       - name: order_id
         description: Unique order identifier
         data_type: integer
+
       - name: credit_card_amount
         description: Amount paid using credit card
         data_type: double
+
       - name: coupon_amount
         description: Amount paid using coupon
         data_type: double
+
       - name: bank_transfer_amount
         description: Amount paid using bank transfer
         data_type: double
+
       - name: gift_card_amount
-        description: |
-          Amount paid using gift card
+        description: Amount paid using gift card
         data_type: double
+
       - name: total_amount
-        description: |
-          Total amount for all payment methods
+        description: Total amount for all payment methods
         data_type: double
+
+  
