@@ -32,3 +32,15 @@ models:
       
       - name: total_amount
         description: Total amount paid by the customer
+  
+  - name: order_payments
+    description: This table has the total amount for each order id
+
+    columns:
+      - name: order_id
+        description: Order Identifier
+      
+      - name: total_amount
+        description: Total amount for each order
+
+    

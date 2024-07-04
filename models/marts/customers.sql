@@ -6,12 +6,12 @@ with customers as (
 
 customer_orders as (
 
-    select * from {{ref("customer_orders")}}
+    select * from {{ ref("customer_orders") }}
 ),
 
 customer_payments as (
 
-    select * from {{ref("customer_payments")}}
+    select * from {{ ref("customer_payments") }}
 ),
 
 final as (

@@ -24,20 +24,16 @@ seeds:
     node_color: '#cd7f32'
 
 models:
-  staging:
-    materialized: view
-    +docs:
-      node_color: 'bronze'
+  jaffle_shop:
+    staging:
+      +materialized: view
+      
+    intermediate:
+      +materialized: table
 
-  intermediate:
-    materiaized: table
-    +docs:
-      node_color: 'silver'
+    marts:
+      +materialized: table
 
-  marts:
-    materialized: table
-    +docs:
-      node_color: 'gold'
 
   
 
