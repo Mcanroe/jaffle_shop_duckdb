@@ -33,4 +33,4 @@
 	-   **Not_null**  tests to see if every value in a column is not null
 	-   **Accepted_values**  tests to make sure every value in a column is equal to a value in a provided list
 	-   **Relationships**  tests to ensure that every value in a column exists in a column in another model	
-	-  Example : ![DBT Tests](https://imgur.com/a/Nx1O3qr)
+	-  Example : ![DBT Tests](https://i.ibb.co/G2YRK6x/Screenshot-2024-07-08-220220.png)
