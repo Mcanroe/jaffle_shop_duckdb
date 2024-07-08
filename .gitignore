@@ -9,4 +9,4 @@ venv/
 env/
 **/*.duckdb
 **/*.duckdb.wal
-pyvenv.cfgdb
+pyvenv.cfg
