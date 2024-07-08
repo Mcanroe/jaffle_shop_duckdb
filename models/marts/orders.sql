@@ -6,27 +6,9 @@ with orders as (
 
 ),
 
-payments as (
-
-    select * from {{ ref('stg_payments') }}
-
-),
-
 order_payments as (
 
-    select
-        order_id,
-
-        {% for payment_method in payment_methods -%}
-        sum(case when payment_method = '{{ payment_method }}' then amount else 0 end) as {{ payment_method }}_amount,
-        {% endfor -%}
-
-        sum(amount) as total_amount
-
-    from payments
-
-    group by order_id
-
+    select * from {{ ref('order_payments') }}
 ),
 
 final as (
@@ -46,7 +28,6 @@ final as (
         order_payments.total_amount as amount
 
     from orders
-
 
     left join order_payments
         on orders.order_id = order_payments.order_id

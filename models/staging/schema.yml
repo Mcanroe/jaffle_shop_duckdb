@@ -2,12 +2,19 @@ version: 2
 
 models:
   - name: stg_customers
+    description: Importing customer demographic data from source
     columns:
       - name: customer_id
+        data_type: integer
+        description: Unique identifier for a customer
         tests:
-          - unique
           - not_null
-
+          - unique
+      - name: first_name
+        data_type: varchar
+      - name: last_name
+        data_type: varchar
+    
   - name: stg_orders
     columns:
       - name: order_id
@@ -17,7 +24,17 @@ models:
       - name: status
         tests:
           - accepted_values:
-              values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+              values:
+                - placed
+                - shipped
+                - completed
+                - return_pending
+                - returned
+      - name: customer_id
+        tests:
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
 
   - name: stg_payments
     columns:
@@ -28,4 +45,8 @@ models:
       - name: payment_method
         tests:
           - accepted_values:
-              values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
+              values:
+                - credit_card
+                - coupon
+                - bank_transfer
+                - gift_card
